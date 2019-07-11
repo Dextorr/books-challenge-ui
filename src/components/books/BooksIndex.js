@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Card } from 'react-bootstrap'
+
+import BookCard from './BookCard'
 
 class BooksIndex extends React.Component{
 
@@ -18,9 +20,7 @@ class BooksIndex extends React.Component{
         <h1>Books</h1>
         <Row>
           {this.state.books.map(book =>
-            <Col key={book.id}>
-              <h3>{book.title}</h3>
-            </Col>
+            <BookCard key={book.id} book={book} />
           )}
         </Row>
       </Container>
