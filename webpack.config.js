@@ -6,7 +6,8 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: path.resolve('dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -20,6 +21,7 @@ module.exports = {
     hot: true,
     open: true,
     port: 8000,
+    historyApiFallback: true,
     watchContentBase: true
   },
   plugins: [

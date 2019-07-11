@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import { Container, Row, Col, Card } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 
 import BookCard from './BookCard'
 
