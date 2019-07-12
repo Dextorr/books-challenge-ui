@@ -128,4 +128,4 @@ I was also quite happy with how the low stock "alert" turned out:
 
 ## Future features
 
-Given more time to work on this, I'd work on feedback to the user first. Such as a message or something saying you can't add more of a particular item due to stock restrictions, or maybe a modal on checkout instead of just changing the message displayed on the component.
+Given more time to work on this, I'd work on feedback to the user first. Such as a message or something saying you can't add more of a particular item due to stock restrictions, or maybe a modal on checkout instead of just changing the message displayed on the component. Following those features I'd love to fine-tune the styling and make things look a little cleaner, though overall I'm happy with what I've achieved.
