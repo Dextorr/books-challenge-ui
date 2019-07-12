@@ -17,7 +17,9 @@ class BookShow extends React.Component{
       title,
       thumbnail,
       author,
-      description
+      description,
+      price,
+      stockAmount
     } = this.state.book
     return(
       <Container>
@@ -31,10 +33,17 @@ class BookShow extends React.Component{
 
           <Col>
             <h3>by {author.firstName} {author.lastName}</h3>
+
+            <Row>
+              <Col><p>£{price}</p></Col>
+              <Col><p>Currently {stockAmount === 0 ? 'un':''}available</p></Col>
+            </Row>
+
             <p>{description}</p>
           </Col>
 
         </Row>
+
       </Container>
     )
   }

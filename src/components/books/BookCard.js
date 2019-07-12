@@ -5,7 +5,7 @@ import { Col, Card } from 'react-bootstrap'
 
 const BookCard = ({ book }) => {
   return(
-    <Col key={book.id}>
+    <Col key={book.id} xs={12} sm={6} lg={4} className="book-index-col">
       <Link to={`/books/${book.id}`} >
         <Card style={{
           height: '100%',
@@ -13,8 +13,10 @@ const BookCard = ({ book }) => {
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}>
-          <Card.Body>
+          <Card.Header>
             <Card.Title>{book.title}</Card.Title>
+          </Card.Header>
+          <Card.Body>
             <Card.Text>by {book.author.firstName} {book.author.lastName}</Card.Text>
             <Card.Text>£{book.price}</Card.Text>
           </Card.Body>

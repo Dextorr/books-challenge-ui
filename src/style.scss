@@ -6,6 +6,31 @@ body {
   margin: 0;
 }
 
-h1 {
-  color: #f00;
+// BOOK INDEX ******************************************************************
+
+.book-index-col {
+  margin: 10px 0;
+
+  .card {
+    color: #000;
+    transition: all 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+
+      .card-body{
+        opacity: 1;
+      }
+    }
+
+    .card-header {
+      background: rgba(169, 169, 169, 0.9)
+    }
+
+    .card-body {
+      transition: opacity 0.5s ease;
+      opacity: 0;
+      background: rgba(169, 169, 169, 0.9)
+    }
+  }
 }
