@@ -12,10 +12,12 @@ const Navigation = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
-          <Link to="/">
-            <Navbar.Text>Home</Navbar.Text>
+          <Link to="/" className="nav-link">
+            Home
           </Link>
-          <Nav.Link>Basket</Nav.Link>
+          <Link to="/basket" className="nav-link">
+            Basket
+          </Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

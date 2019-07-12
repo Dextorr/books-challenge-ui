@@ -3,6 +3,8 @@ import axios from 'axios'
 
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 
+import ItemQuantity from '../basket/ItemQuantity'
+
 class BookShow extends React.Component{
   constructor(){
     super()
@@ -14,12 +16,12 @@ class BookShow extends React.Component{
     return JSON.parse(localStorage.getItem('booksOnTapBasket')) || []
   }
 
-  handleBasket(operation){
+  handleBasket(operation, book){
     const basket = this.getBasket()
-    if (basket.some(item => item.book.id === this.state.book.id)){
-      const itemIndex = basket.findIndex(item => item.book.id === this.state.book.id)
+    if (basket.some(item => item.book.id === book.id)){
+      const itemIndex = basket.findIndex(item => item.book.id === book.id)
       const quantity = basket[itemIndex].quantity
-      const stock = this.state.book.stockAmount
+      const stock = book.stockAmount
       if(quantity < stock && operation === '+'){
         basket[itemIndex].quantity += 1
       } else if (quantity > 1 && operation === '-'){
@@ -29,7 +31,7 @@ class BookShow extends React.Component{
       }
     } else {
       basket.push({
-        book: this.state.book,
+        book: book,
         quantity: 1
       })
     }
@@ -88,18 +90,16 @@ class BookShow extends React.Component{
                 {!this.state.basket.some(item => item.book.id === this.state.book.id) ?
                   <Button
                     disabled={stockAmount === 0}
-                    onClick={() => this.handleBasket('+')}
+                    onClick={() => this.handleBasket('+', this.state.book)}
                   >
                     {stockAmount === 0 ?  'Out of stock':'Add to Basket'}
                   </Button>
                   :
-                  <div>
-                    <Button onClick={() => this.handleBasket('-')}>-</Button>
-                    <Button disabled>
-                      {this.state.basket.find(item => item.book.id === this.state.book.id).quantity}
-                    </Button>
-                    <Button onClick={() => this.handleBasket('+')}>+</Button>
-                  </div>
+                  <ItemQuantity
+                    handleBasket={this.handleBasket}
+                    basket={this.state.basket}
+                    book={this.state.book}
+                  />
                 }
               </Col>
             </Row>
